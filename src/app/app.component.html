@@ -1,0 +1,40 @@
+<div class="spaced">
+  Hello World <br />
+  {{ helloworld + "" + title }}
+</div>
+<button class="spaced" (click)="incremetClicked()">Click 'Me'</button>
+<div class="spaced">
+  The button Was click {{ clicked }} items
+  <br />
+  <!-- <input [value]="clicked" /> -->
+  <input [(ngModel)]="clicked" />
+  <div *ngIf="clicked > 5">You have clicked more than 5 item</div>
+</div>
+
+<div class="spaced">
+  <button (dblclick)="increnetDoubleClicked()">Double Click Me</button><br />
+  The button was clicked {{ doubleClicked }} times
+</div>
+
+<div *ngIf="willShowBlock">This is the conditionallt displayed block</div>
+
+<div *ngIf="willShowBlock != true">Hello This code is false</div>
+
+<div class="spaced">
+  <div *ngFor="let number of valueToLoopThrough; let indexOut = index">
+    {{ number }},{{ indexOut }}
+  </div>
+</div>
+
+<div class="block-of-color" (contextmenu)="toggleContextMenu(true, $event)">
+  Right-click me
+</div>
+
+<div
+  *ngIf="contextMenuInfo.willContextMenuShow"
+  class="context-menu"
+  [style.left.px]="contextMenuInfo.pageX"
+  [style.top.px]="contextMenuInfo.pageY"
+>
+  This is the context menu
+</div>
