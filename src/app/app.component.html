@@ -1,4 +1,4 @@
-<div class="spaced">
+<!-- <div class="spaced">
   Hello World <br />
   {{ helloworld + "" + title }}
 </div>
@@ -6,7 +6,7 @@
 <div class="spaced">
   The button Was click {{ clicked }} items
   <br />
-  <!-- <input [value]="clicked" /> -->
+
   <input [(ngModel)]="clicked" />
   <div *ngIf="clicked > 5">You have clicked more than 5 item</div>
 </div>
@@ -26,15 +26,48 @@
   </div>
 </div>
 
-<div class="block-of-color" (contextmenu)="toggleContextMenu(true, $event)">
+<div
+  class="block-of-color"
+  [ngStyle]="{ 'background-color': 'green' }"
+  (contextmenu)="toggleContextMenu(true, $event)"
+>
   Right-click me
 </div>
 
 <div
-  *ngIf="contextMenuInfo.willContextMenuShow"
+  *ngIf="contextMenuInfo.willShow"
   class="context-menu"
   [style.left.px]="contextMenuInfo.pageX"
   [style.top.px]="contextMenuInfo.pageY"
 >
   This is the context menu
 </div>
+
+<div [ngClass]="{ 'tool-color': 'true' }">hello</div>
+
+<div [classList]="{ active: isActive }">This is a box</div>
+
+<div [ngClass]="{ active: isActive, ' disabled': isDisabled }">
+  Hello My namis HongEngVathan
+</div>
+
+
+<div
+  [ngClass]="{
+    highlight: score >= 75,
+    warning: score < 75 && score >= 50,
+    danger: score < 50
+  }"
+>
+  Student score is {{ score }}
+</div>
+
+<div class="container">
+  <h1>Task Manager</h1>
+
+
+
+  <input [(ngModel)]="newTask" type="text" class="form-control" />
+  <button class="btn btn-primary mt-2" (click)="addTask()">AddNewTask</button>
+</div> -->
+<app-user></app-user>
